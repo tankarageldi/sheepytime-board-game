@@ -1,32 +1,72 @@
-# Sheepy Time Game
+# Sheepy Time — Text-Based Java Game (Solo Mode)
+
+A console-based Java adaptation of *Sheepy Time* by Neil Kimball, created for an Object-Oriented Design (OOD) course.  
+The game uses **MVC architecture**, **SOLID principles**, and includes extensive **unit testing** for Models, Views, and Controllers.
 
 ## Contributors
-
 - Adil Alimzhanov
 - Tan Karageldi
 - Derrick Ansah
 - Tolga Cohce
 
-## Usage
+## How to Run
+Open the project in any Java IDE or terminal and run:
 
-To start the game, run the `main` method in the `Main.java` file.
+```
+Main.java
+```
 
-## Sheepy Time (Solo Mode)
+## Game Overview
+You play as a dream sheep navigating the dream track while avoiding the Nightmare.  
+Your objective is to collect **Winks** before the Nightmare wakes the dreamer.
 
-Sheepy Time is an engaging board game where you play as a dream sheep tasked with protecting the dreamer's slumber from nightmares. In the solo mode, your objective is to navigate through the dreamer's cycles of sleep, managing both your movements and the nightmare's advances to keep the dreamer asleep.
+### Key Resources
+- **Zzzs** → Gain abilities  
+- **Winks** → Required to win  
 
-Your goal is to gather enough winks (points) to win before the dreamer is awakened by nightmares. Each round represents a sleep cycle, and you must strategically use your sheep's abilities to move through the dream track, avoiding or confronting nightmares that try to wake the dreamer.
+### Nightmare Cards
+The Nightmare deck dictates enemy movement and special effects each round.
 
-## Gameplay Mechanics
+---
 
-### Nightmare's Movement
+## Architecture Overview
+### MVC Breakdown
+- **Model** — Sheep, Nightmare, Board, Cards, Deck, Abilities  
+- **View** — Console output, display helpers  
+- **Controller** — Game loop, turn resolution, rule enforcement
 
-Determined by a deck of cards that dictate its actions each turn, influencing how you navigate the dream track.
+### SOLID Principles Used
+- **SRP:** Each class handles one domain responsibility  
+- **OCP:** New cards/abilities can be added without changing existing logic  
+- **LSP:** All `Card` subclasses behave consistently with the `Card` base type  
+- **ISP:** No “god interfaces”; responsibilities are separated  
+- **DIP:** Controller depends on abstractions (View, Card types)  
 
-### Zzzs and Winks
+---
 
-Collect Zzzs to gain special abilities and earn Winks to move towards victory. Managing these resources is key to success in solo play.
+## Testing
+Unit tests were created for:
+- Model entities  
+- Movement logic  
+- Card behaviors  
+- Board interactions  
+- View rendering  
+- Controller flow  
 
-## Strategy
+The project includes high test coverage to validate the game loop, card effects, and player/nightmare interactions.
 
-Solo mode challenges you to think ahead, anticipate the nightmare's moves, and use your limited actions efficiently. Each decision affects the dreamer's state and your ability to collect Winks.
+---
+
+## Project Structure
+```
+src/
+ ├── controller/
+ ├── model/
+ ├── view/
+ └── Main.java
+```
+
+---
+
+## License
+For educational use only. Not affiliated with the official Sheepy Time board game.
